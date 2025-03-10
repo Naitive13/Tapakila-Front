@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@plugin "daisyui" {
+  themes:
+    aqua --default,
+    dracula;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
