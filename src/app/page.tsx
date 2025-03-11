@@ -1,5 +1,6 @@
 import CarouselCard from "@/components/CarouselCard";
 import EventCard from "@/components/EventCard";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -37,6 +38,11 @@ export default function Home() {
         <EventCard />
         <EventCard />
       </div>
+
+      <br />
+      <br />
+      <br />
+      <Footer />
     </>
   );
 }
