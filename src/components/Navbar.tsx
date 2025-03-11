@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <div className="shadow-sm navbar bg-primary">
+    <div className="shadow-sm navbar bg-primary text-primary-content">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
