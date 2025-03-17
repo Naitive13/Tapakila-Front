@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/Navbar";
+import "../globals.css";
 
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
@@ -26,7 +25,6 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="aqua">
       <body className={`${roboto.variable} ${robotoMono.variable} antialiased`}>
-        <Navbar />
         {children}
       </body>
     </html>
