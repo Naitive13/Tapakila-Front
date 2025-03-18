@@ -25,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="aqua">
       <body className={`${roboto.variable} ${robotoMono.variable} antialiased`}>
-        {children}
+        <div className="flex justify-center items-center py-5 px-5 w-full min-h-screen">
+          {children}
+        </div>
       </body>
     </html>
   );
