@@ -21,20 +21,6 @@ export default function Login() {
         </h1>
         <div className="mt-5 w-full sm:mt-8">
           <div className="flex flex-col gap-5 mx-auto w-full sm:max-w-md md:max-w-lg">
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <input
-                type="text"
-                placeholder="Enter Your First Name"
-                className="w-full text-base-content input input-bordered input-primary placeholder:text-base-300"
-                name="firstname"
-              />
-              <input
-                type="text"
-                placeholder="Enter Your Last Name"
-                className="w-full text-base-content input input-bordered input-primary placeholder:text-base-300"
-                name="lastname"
-              />
-            </div>
             <input
               type="text"
               placeholder="Enter Your Username"
