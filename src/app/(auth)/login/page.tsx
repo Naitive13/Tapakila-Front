@@ -25,7 +25,7 @@ export default function Login() {
               type="text"
               name="username"
               placeholder="Enter Your Username"
-              className="py-5 w-full text-base-content input input-bordered input-primary placeholder:text-base-300"
+              className="w-full text-base-content input input-bordered input-primary placeholder:text-base-300"
             />
             <input
               type="Password"
