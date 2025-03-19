@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     userName: data.username,
     email: data.email,
     password: data.password,
-    role: "standard",
+    type: "standard",
     // creationDate: new Date().toISOString(),
   };
 
