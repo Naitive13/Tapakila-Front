@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     email: data.email,
     password: data.password,
     role: "standard",
-    creationDate: new Date().toISOString(),
+    // creationDate: new Date().toISOString(),
   };
 
   const response = await fetch(`${BASE_URL}/auth/signup`, {
