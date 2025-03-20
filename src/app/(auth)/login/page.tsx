@@ -23,8 +23,8 @@ export default function Login() {
           <div className="flex flex-col gap-5 mx-auto w-full sm:max-w-md md:max-w-lg">
             <input
               type="text"
-              name="username"
-              placeholder="Enter Your Username"
+              name="email"
+              placeholder="Enter Your Email"
               className="w-full text-base-content input input-bordered input-primary placeholder:text-base-300"
             />
             <input
