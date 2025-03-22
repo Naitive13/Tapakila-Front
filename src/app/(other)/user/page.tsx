@@ -27,6 +27,12 @@ export default function UserPage() {
               </div>
             </div>
           </li>
+          <li className="px-1 list-row">
+            <button className="btn btn-soft btn-primary">Edit Info</button>
+            <button className="btn btn-soft btn-secondary">
+              Change Password
+            </button>
+          </li>
         </ul>
       </div>
       <div className="flex justify-between items-stretch py-5 px-5 w-5/12 rounded-md xl:px-5 bg-base-200"></div>
