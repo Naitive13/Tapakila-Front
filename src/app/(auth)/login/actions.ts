@@ -8,4 +8,5 @@ export async function loginAction(e: FormData) {
   });
   const result = await data.json();
   alert(result.token);
+  localStorage.setItem("token", result.token);
 }
