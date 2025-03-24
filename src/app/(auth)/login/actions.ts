@@ -6,6 +6,11 @@ export async function loginAction(e: FormData) {
       password: e.get("password"),
     }),
   });
-  const result = await data.json();
-  alert(result.token);
+  if (data.ok) {
+    alert("Login successful");
+    const result = await data.json();
+    console.log(result);
+  } else {
+    alert("Login failed");
+  }
 }
