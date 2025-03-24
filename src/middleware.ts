@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  if (pathname.startsWith("/")) {
+  if (pathname.startsWith("/user")) {
     const token = request.cookies.get("accessToken");
     console.log(token);
     if (!token) {
@@ -14,5 +14,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/"],
+  matcher: ["/user/:path*"],
 };
