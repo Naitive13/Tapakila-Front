@@ -11,7 +11,7 @@ type UserProfileCardProps = {
 export default function UserProfileCard({ info }: UserProfileCardProps) {
   return (
     <>
-      <ul className="list rounded-box">
+      <ul className="min-h-full list rounded-box">
         <li className="p-4 pb-2 text-xs tracking-wide opacity-60">
           <h2 className="text-3xl">Your Profile</h2>
         </li>
