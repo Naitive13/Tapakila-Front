@@ -45,7 +45,12 @@ export default function UserProfileCard({ info }: UserProfileCardProps) {
           </div>
         </li>
         <li className="px-1 list-row">
-          <button className="btn btn-soft btn-primary">Edit Info</button>
+          <button
+            className="btn btn-soft btn-primary"
+            onClick={() => document.getElementById("my_modal_2").showModal()}
+          >
+            Edit Info
+          </button>
           <button className="btn btn-soft btn-secondary">
             Change Password
           </button>

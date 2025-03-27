@@ -1,4 +1,5 @@
 "use client";
+import EditUserInfo from "@/components/EditUserInfo";
 import Loading from "@/components/Loading";
 import ReservationUser from "@/components/ReservationUser";
 import UserProfileCard from "@/components/UserProfileCard";
@@ -29,6 +30,8 @@ export default function UserPage() {
           <ReservationUser />
         </ul>
       </div>
+
+      <EditUserInfo defaultValues={data} />
 
       {/* <div className="flex justify-between items-stretch py-5 px-5 w-5/12 rounded-md xl:px-5 bg-base-200"></div> */}
     </>
