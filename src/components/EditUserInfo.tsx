@@ -5,15 +5,19 @@ type EditUserInfoProps = {
     username: string;
     email: string;
   };
+  action: (e: FormData) => void;
 };
-export default function EditUserInfo({ defaultValues }: EditUserInfoProps) {
+export default function EditUserInfo({
+  defaultValues,
+  action,
+}: EditUserInfoProps) {
   const { setUsername, setEmail } = useUserInfoStore();
   return (
-    <>
-      <dialog id="my_modal_2" className="modal">
-        <div className="modal-box">
-          <div className="mt-5 w-full sm:mt-8">
-            <div className="flex flex-col gap-5 mx-auto w-full sm:max-w-md md:max-w-lg">
+    <dialog id="my_modal_2" className="modal">
+      <div className="modal-box">
+        <div className="mt-5 w-full sm:mt-8">
+          <div className="flex flex-col gap-5 mx-auto w-full sm:max-w-md md:max-w-lg">
+            <form action={action}>
               <fieldset className="fieldset">
                 <legend className="fieldset-legend">Username</legend>
                 <input
@@ -31,7 +35,7 @@ export default function EditUserInfo({ defaultValues }: EditUserInfoProps) {
                   type="text"
                   placeholder="Enter Your Email"
                   className="w-full opacity-60 text-base-content input placeholder:text-base-300"
-                  name="username"
+                  name="email"
                   defaultValue={defaultValues.email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -43,22 +47,14 @@ export default function EditUserInfo({ defaultValues }: EditUserInfoProps) {
                 >
                   Save
                 </button>
-                <form
-                  method="dialog"
-                  className="flex min-h-full min-w-1/12 xs:min-w-full shrink"
-                >
-                  <button className="min-w-full btn-soft btn-secondary btn">
-                    Cancel
-                  </button>
-                </form>
               </div>
-            </div>
+            </form>
           </div>
         </div>
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
-    </>
+      </div>
+      <form method="dialog" className="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
   );
 }
