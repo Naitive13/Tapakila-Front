@@ -17,11 +17,11 @@ export default function UserPage() {
 
   return (
     <>
-      <div className="flex justify-between items-stretch py-5 px-5 w-6/12 rounded-md border-2 border-gray-100 shadow-md xl:px-5 min-h-5/12 bg-base-100 item-center">
+      <div className="flex justify-between items-stretch py-5 px-5 rounded-md border-2 border-gray-100 shadow-md md:w-6/12 xl:px-5 min-h-5/12 bg-base-100 item-center">
         <UserProfileCard info={data} />
       </div>
 
-      <div className="justify-between items-stretch py-5 px-5 w-6/12 rounded-md border-2 border-gray-100 shadow-md xl:px-5 bg-base-100 item-center">
+      <div className="justify-between items-stretch py-5 px-5 rounded-md border-2 border-gray-100 shadow-md md:w-6/12 xl:px-5 bg-base-100 item-center">
         <h2 className="p-4 pb-2 text-3xl tracking-wide opacity-60">
           Your Reservation
         </h2>
