@@ -51,7 +51,12 @@ export default function UserProfileCard({ info }: UserProfileCardProps) {
           >
             Edit Info
           </button>
-          <button className="btn btn-soft btn-secondary">
+          <button
+            className="btn btn-soft btn-secondary"
+            onClick={() =>
+              document.getElementById("changePassword").showModal()
+            }
+          >
             Change Password
           </button>
         </li>

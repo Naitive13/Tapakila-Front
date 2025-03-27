@@ -5,7 +5,8 @@ import ReservationUser from "@/components/ReservationUser";
 import UserProfileCard from "@/components/UserProfileCard";
 import { getData } from "@/lib/fetcher";
 import useSWR from "swr";
-import userInfoUpdate from "./action";
+import { changePassword, userInfoUpdate } from "./action";
+import ChangePassword from "@/components/ChangePassword";
 
 export default function UserPage() {
   const { data, error, isLoading } = useSWR(`api/user`, getData);
@@ -33,6 +34,7 @@ export default function UserPage() {
       </div>
 
       <EditUserInfo defaultValues={data} action={userInfoUpdate} />
+      <ChangePassword action={changePassword} />
 
       {/* <div className="flex justify-between items-stretch py-5 px-5 w-5/12 rounded-md xl:px-5 bg-base-200"></div> */}
     </>
