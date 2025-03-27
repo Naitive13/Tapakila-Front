@@ -1,0 +1,33 @@
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  // mock data because no api yet
+  const pastReservation = {
+    ticketId: "32d8053c-4768-4b71-b327-16429ca96ec6",
+    userId: "550e8400-e29b-41d4-a716-446655440000",
+    reservationDate: "2025-02-14 10:00",
+    reservationId: "8aaf619d-b844-4f77-b775-0343da9d6e78",
+  };
+  const upcomingReservation1 = {
+    ticketId: "51eee0e4-70fe-4ea4-b625-33f7b6795c34",
+    userId: "550e8400-e29b-41d4-a716-446655440000",
+    reservationDate: "2025-02-14 10:00",
+    reservationId: "df7e4fab-df3f-4015-bfc5-099adf6ee6eb",
+  };
+  const upcomingReservation2 = {
+    ticketId: "dad5e2d3-abfd-4cac-a15a-e1c29081fc14",
+    userId: "550e8400-e29b-41d4-a716-446655440000",
+    reservationDate: "2025-02-14 10:00",
+    reservationId: "21703d00-47c7-4494-bd74-1053aca2064d",
+  };
+
+  const data = {
+    uuid: "550e8400-e29b-41d4-a716-446655440000",
+    username: "UsernameTest",
+    email: "emailtest@gmail.com",
+    role: "standard",
+    creationDate: new Date("2025-01-01 11:00").toDateString(),
+    reservations: [pastReservation, upcomingReservation1, upcomingReservation2],
+  };
+  return NextResponse.json(data);
+}
