@@ -1,14 +1,14 @@
 type UserProfileCardProps = {
   info: {
-    uuid: string;
-    username: string;
-    email: string;
-    role: string;
+    userId: string;
+    userName: string;
+    userEmail: string;
     creationDate: string;
     reservations: [];
   };
 };
 export default function UserProfileCard({ info }: UserProfileCardProps) {
+  console.log(info);
   return (
     <>
       <ul className="min-h-full list rounded-box">
@@ -18,7 +18,9 @@ export default function UserProfileCard({ info }: UserProfileCardProps) {
         <li className="list-row">
           <div>
             <div className="text-lg text-base-content">UserID</div>
-            <div className="text-xs font-semibold opacity-60">{info.uuid}</div>
+            <div className="text-xs font-semibold opacity-60">
+              {info.userId}
+            </div>
           </div>
         </li>
 
@@ -26,21 +28,28 @@ export default function UserProfileCard({ info }: UserProfileCardProps) {
           <div>
             <div className="text-lg text-base-content">Username</div>
             <div className="text-xs font-semibold opacity-60">
-              {info.username}
+              {info.userName}
             </div>
           </div>
         </li>
         <li className="list-row">
           <div>
             <div className="text-lg text-base-content">Email</div>
-            <div className="text-xs font-semibold opacity-60">{info.email}</div>
+            <div className="text-xs font-semibold opacity-60">
+              {info.userEmail}
+            </div>
           </div>
         </li>
         <li className="list-row">
           <div>
             <div className="text-lg text-base-content">Creation Date</div>
             <div className="text-xs font-semibold opacity-60">
-              {info.creationDate}
+              {new Date(info.creationDate).toLocaleDateString("en-US", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
             </div>
           </div>
         </li>
