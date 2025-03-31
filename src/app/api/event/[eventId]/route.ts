@@ -11,9 +11,13 @@ export async function GET(
     const event = {
       title: "Test Event",
       eventType: "Concert",
-      ticketNumber: 100,
+      totalTicket: 100,
+      availableTicket: 90,
       eventPoster: "https://placehold.co/1200x1200",
       eventId: "550e8400-e29b-41d4-a716-446655440000",
+      date: "2022-12-12",
+      description:
+        "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit voluptate velit esse cillum dolore fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa officia deserunt mollit anim id est laborum",
     };
     return NextResponse.json(event);
   } else {
