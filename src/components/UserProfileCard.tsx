@@ -44,7 +44,12 @@ export default function UserProfileCard({ info }: UserProfileCardProps) {
           <div>
             <div className="text-lg text-base-content">Creation Date</div>
             <div className="text-xs font-semibold opacity-60">
-              {info.creationDate}
+              {new Date(info.creationDate).toLocaleDateString("en-US", {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
             </div>
           </div>
         </li>
