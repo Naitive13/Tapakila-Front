@@ -1,8 +1,11 @@
 "use client";
 import Loading from "@/components/Loading";
+import ReservationEvent from "@/components/ReservationEvent";
 import { getData } from "@/lib/fetcher";
-import { use } from "react";
+import { use, useRef } from "react";
 import useSWR from "swr";
+import { submit } from "./action";
+import useReservationInfoStore from "@/lib/reservationStore";
 
 type Params = {
   params: Promise<{ eventId: string }>;
@@ -10,6 +13,10 @@ type Params = {
 export default function ReservationPage({ params }: Params) {
   const { eventId } = use(params);
   const { data, error, isLoading } = useSWR(`/api/event/${eventId}`, getData);
+  const ref = useRef<HTMLFormElement>(null);
+
+  const { ticketType, ticketAmount, setTicketType, setTicketAmount } =
+    useReservationInfoStore();
 
   if (isLoading) {
     return <Loading />;
@@ -27,43 +34,39 @@ export default function ReservationPage({ params }: Params) {
             className="self-center size-max"
           />
         </div>
-        <div className="flex flex-col min-w-8/12">
-          <form action="" className="p-4">
-            <h2 className="mb-2.5 text-4xl font-semibold">
-              Make Your Reservation Now
-            </h2>
-            <ul className="overflow-hidden gap-y-4 max-w-full list">
-              <li className="list-col-grow">
-                <div>
-                  <h2 className="text-xl font-semibold">Event Title</h2>
-                  <p className="opacity-60 text-md">{data.title}</p>
-                </div>
-              </li>
-              <li className="list-col-grow">
-                <div>
-                  <h2 className="text-xl font-semibold">Event Type</h2>
-                  <p className="opacity-60 text-md">{data.eventType}</p>
-                </div>
-              </li>
-              <li className="list-col-grow">
-                <div>
-                  <h2 className="text-xl font-semibold">Event Date</h2>
-                  <p className="opacity-60 text-md">
-                    {new Date(data.date).toLocaleDateString("en-US", {
-                      weekday: "long",
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </p>
-                </div>
-              </li>
-            </ul>
+        <div className="flex flex-col p-4 min-w-8/12">
+          <h2 className="mb-2.5 text-3xl font-semibold md:text-4xl">
+            Make Your Reservation Now !
+          </h2>
+          <ReservationEvent data={data} />
+          <form
+            action={async (formData) => {
+              submit(formData);
+              ref.current?.reset();
+            }}
+            ref={ref}
+            onReset={() => {
+              setTicketAmount("1");
+              setTicketType("Regular");
+            }}
+          >
             <fieldset className="my-4 fieldset">
               <legend className="text-xl fieldset-legend">Ticket Type</legend>
+              <input
+                name="ticketType"
+                type="hidden"
+                defaultValue={ticketType}
+              />
+              <input
+                name="ticketAmount"
+                type="hidden"
+                defaultValue={ticketAmount}
+              />
+              <input name="eventId" type="hidden" defaultValue={eventId} />
               <select
                 defaultValue="Regular"
                 className="w-2/5 opacity-60 select select-secondary"
+                onChange={(e) => setTicketType(e.target.value)}
               >
                 <option>Regular</option>
                 <option>Bronze</option>
@@ -77,6 +80,7 @@ export default function ReservationPage({ params }: Params) {
               <select
                 defaultValue="1"
                 className="w-2/5 opacity-60 select select-secondary"
+                onChange={(e) => setTicketAmount(e.target.value)}
               >
                 <option>1</option>
                 <option>2</option>
@@ -88,7 +92,10 @@ export default function ReservationPage({ params }: Params) {
             <button className="mt-4 w-2/12 btn btn-soft btn-primary">
               Confirm
             </button>
-            <button className="mt-4 ml-16 w-2/12 btn btn-soft btn-error">
+            <button
+              type="button"
+              className="mt-4 ml-16 w-2/12 btn btn-soft btn-error"
+            >
               Cancel
             </button>
           </form>
