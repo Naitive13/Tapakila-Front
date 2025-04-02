@@ -1,4 +1,4 @@
-import { BASE_URL } from "../constant";
+import { BASE_URL } from "@/lib/constant";
 
 export async function POST(request: Request) {
   const data = await request.json();

@@ -1,5 +1,5 @@
+import { BASE_URL } from "@/lib/constant";
 import { cookies } from "next/headers";
-import { BASE_URL } from "../constant";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
