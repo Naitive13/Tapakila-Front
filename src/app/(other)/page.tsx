@@ -1,8 +1,13 @@
+"use client";
 import CarouselCard from "@/components/CarouselCard";
 import EventCard from "@/components/EventCard";
 import Footer from "@/components/Footer";
+import useSWR from "swr";
+import { getData } from "@/lib/fetcher";
 
 export default function Home() {
+  const { data, error, isLoading } = useSWR(`api/event`, getData);
+  console.log(data);
   return (
     <>
       <div className="w-full carousel">
@@ -42,7 +47,6 @@ export default function Home() {
       <br />
       <br />
       <br />
-      <Footer />
     </>
   );
 }
