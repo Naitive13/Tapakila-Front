@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <div className="shadow-sm navbar bg-primary text-base-100">
+    <div className="sticky top-0 z-10 navbar bg-primary text-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -37,7 +37,7 @@ export default function Navbar() {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="text-xl btn btn-ghost">Tapakila</a>
+        <p className="text-xl">Tapakila</p>
       </div>
       <div className="navbar-end text-base-content">
         <label className="input">
