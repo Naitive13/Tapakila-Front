@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <>
-      <footer className="p-10 footer footer-horizontal footer-center bg-primary text-primary-content">
+      <footer className="p-10 footer footer-horizontal footer-center bg-primary text-base-100">
         <aside>
           <svg
             width="50"

@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <div className="shadow-sm navbar bg-primary text-primary-content">
+    <div className="shadow-sm navbar bg-primary text-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
@@ -22,7 +22,7 @@ export default function Navbar() {
           </div>
           <ul
             tabIndex={0}
-            className="p-2 mt-3 w-52 shadow menu menu-sm dropdown-content bg-primary text-primary-content rounded-box z-1"
+            className="p-2 mt-3 w-52 shadow menu menu-sm dropdown-content bg-primary text-base-100 rounded-box z-1"
           >
             <li>
               <a>Homepage</a>
