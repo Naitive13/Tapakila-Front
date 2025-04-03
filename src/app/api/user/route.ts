@@ -29,6 +29,40 @@ export async function PUT(request: Request) {
   }
 }
 
+export async function POST(request: Request) {
+  const cookieStore = await cookies();
+  const data = await request.json();
+  if (data.newPassword != data.confirmPassword) {
+    return NextResponse.json(
+      { message: "Password not match" },
+      { status: 400 },
+    );
+  }
+  const body = {
+    userName: data.username,
+    email: data.email,
+    userId: data.userId,
+    userPassword: data.newPassword,
+  };
+
+  const response = await fetch(`${BASE_URL}/user/me`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${cookieStore.get("accessToken")?.value}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (response.ok) {
+    const result = await response.json();
+    return NextResponse.json(result);
+  } else {
+    console.log(response.status);
+    return NextResponse.error();
+  }
+}
+
 export async function GET() {
   // mock data because no api yet
   // const pastReservation = {

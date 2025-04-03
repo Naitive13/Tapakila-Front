@@ -1,10 +1,29 @@
-export default function ChangePassword({ action }) {
+interface ChangePasswordProps {
+  action: (formData: FormData) => Promise<void>;
+  defaultValues: {
+    username: string;
+    email: string;
+    userId: string;
+  };
+}
+
+export default function ChangePassword({
+  action,
+  defaultValues,
+}: ChangePasswordProps) {
   return (
     <dialog id="changePassword" className="modal">
       <div className="modal-box">
         <div className="mt-5 w-full sm:mt-8">
           <div className="flex flex-col gap-5 mx-auto w-full sm:max-w-md md:max-w-lg">
             <form action={action}>
+              <input
+                type="hidden"
+                name="username"
+                value={defaultValues.username}
+              />
+              <input type="hidden" name="email" value={defaultValues.email} />
+              <input type="hidden" name="userId" value={defaultValues.userId} />
               <fieldset className="fieldset">
                 <legend className="fieldset-legend">New Password</legend>
                 <input
