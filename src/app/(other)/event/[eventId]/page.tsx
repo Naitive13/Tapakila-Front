@@ -22,7 +22,9 @@ export default function Page({ params }: Params) {
 
   return (
     <>
-      <EventDetail data={data} />
+      <div className="flex justify-center items-center p-10 h-[90dvh]">
+        <EventDetail data={data} />
+      </div>
     </>
   );
 }
