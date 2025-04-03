@@ -3,8 +3,8 @@ type CarouselCardProps = {
   poster: string;
 };
 export default function CarouselCard(props: CarouselCardProps) {
-  const previousId: number = props.id == 1 ? 4 : props.id - 1;
-  const nextId: number = props.id == 4 ? 1 : props.id + 1;
+  const previousId: number = props.id == 1 ? 3 : props.id - 1;
+  const nextId: number = props.id == 3 ? 1 : props.id + 1;
   return (
     <>
       <div
