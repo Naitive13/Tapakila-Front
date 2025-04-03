@@ -1,5 +1,4 @@
 "use client";
-import EventCard from "@/components/EventCard";
 import EventDetail from "@/components/EventDetail";
 import Loading from "@/components/Loading";
 import { getData } from "@/lib/fetcher";
@@ -23,15 +22,8 @@ export default function Page({ params }: Params) {
 
   return (
     <>
-      <EventDetail data={data} />
-      <br />
-      <p className="my-4 text-4xl">More Event</p>
-
-      <div className="flex flex-col gap-x-1.5 items-center md:flex-row container-fluid w-dvw">
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
+      <div className="flex justify-center items-center p-10 h-[90dvh]">
+        <EventDetail data={data} />
       </div>
     </>
   );
