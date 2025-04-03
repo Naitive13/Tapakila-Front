@@ -34,9 +34,7 @@ export default function UserPage() {
       </div>
 
       <EditUserInfo defaultValues={data} action={userInfoUpdate} />
-      <ChangePassword action={changePassword} />
-
-      {/* <div className="flex justify-between items-stretch py-5 px-5 w-5/12 rounded-md xl:px-5 bg-base-200"></div> */}
+      <ChangePassword defaultValues={data} action={changePassword} />
     </>
   );
 }

@@ -4,6 +4,7 @@ type EditUserInfoProps = {
   defaultValues: {
     username: string;
     email: string;
+    userId: string;
   };
   action: (e: FormData) => void;
 };
@@ -12,12 +13,14 @@ export default function EditUserInfo({
   action,
 }: EditUserInfoProps) {
   const { setUsername, setEmail } = useUserInfoStore();
+  console.log("defaultValues", defaultValues);
   return (
     <dialog id="my_modal_2" className="modal">
       <div className="modal-box">
         <div className="mt-5 w-full sm:mt-8">
           <div className="flex flex-col gap-5 mx-auto w-full sm:max-w-md md:max-w-lg">
             <form action={action}>
+              <input type="hidden" name="userId" value={defaultValues.userId} />
               <fieldset className="fieldset">
                 <legend className="fieldset-legend">Username</legend>
                 <input
