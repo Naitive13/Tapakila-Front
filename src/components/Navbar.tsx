@@ -30,9 +30,6 @@ export default function Navbar() {
             <li>
               <a>Account</a>
             </li>
-            <li>
-              <a>About</a>
-            </li>
           </ul>
         </div>
       </div>
