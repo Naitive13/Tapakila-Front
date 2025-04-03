@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { BASE_URL } from "../constant";
 import { console } from "inspector";
 import { cookies } from "next/headers";
+import { BASE_URL } from "@/lib/constant";
 
 export async function GET() {
   // mock data because no api yet

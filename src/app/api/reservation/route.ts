@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { BASE_URL } from "../constant";
 
 export async function POST(request: Request) {
   const data = await request.json();
