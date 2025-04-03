@@ -2,7 +2,7 @@
 
 @plugin "daisyui" {
   themes:
-    corporate --default,
+    lemonade --default,
     dark --prefers-dark;
 }
 
