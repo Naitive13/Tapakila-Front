@@ -1,7 +1,33 @@
 import { NextResponse } from "next/server";
-import { console } from "inspector";
 import { cookies } from "next/headers";
 import { BASE_URL } from "@/lib/constant";
+
+export async function PUT(request: Request) {
+  const cookieStore = await cookies();
+  const data = await request.json();
+  const body = {
+    userName: data.username,
+    email: data.email,
+    userId: data.userId,
+  };
+
+  const response = await fetch(`${BASE_URL}/user/me`, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${cookieStore.get("accessToken")?.value}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (response.ok) {
+    const result = await response.json();
+    return NextResponse.json(result);
+  } else {
+    console.log(response.status);
+    return NextResponse.error();
+  }
+}
 
 export async function GET() {
   // mock data because no api yet
