@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import { BASE_URL } from "../../constant";
 import { cookies } from "next/headers";
+import { BASE_URL } from "@/lib/constant";
 
 export async function GET(
   request: Request,
