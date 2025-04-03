@@ -21,12 +21,22 @@ export async function GET(
     };
     return NextResponse.json(event);
   } else {
-    const result = await fetch(`${BASE_URL}/events`);
+    const result = await fetch(`${BASE_URL}/events/${eventId}`);
 
     if (result.ok) {
       const data = await result.json();
-      console.log(data);
-      return Response.json(data);
+      const response = {
+        title: data.eventTitle,
+        eventType: data.eventType,
+        totalTicket: 100,
+        availableTicket: 90,
+        eventPoster: data.eventPoster,
+        eventId: data.eventId,
+        date: new Date(data.eventDate).toString(),
+        description:
+          "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit voluptate velit esse cillum dolore fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa officia deserunt mollit anim id est laborum",
+      };
+      return Response.json(response);
     } else {
       console.log(result.status);
       return NextResponse.error();
