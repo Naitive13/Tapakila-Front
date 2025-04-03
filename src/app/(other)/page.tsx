@@ -1,10 +1,10 @@
 "use client";
-import CarouselCard from "@/components/CarouselCard";
 import EventCard from "@/components/EventCard";
 import Footer from "@/components/Footer";
 import useSWR from "swr";
 import { getData } from "@/lib/fetcher";
 import Loading from "@/components/Loading";
+import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
   const { data, error, isLoading } = useSWR(`api/event`, getData);
@@ -12,13 +12,10 @@ export default function Home() {
   if (isLoading) {
     return <Loading />;
   }
-  const carouselEvent = data.slice(0, 3);
   return (
     <>
-      <div className="overflow-hidden w-full max-h-full carousel h-[50dvh]">
-        {carouselEvent.map((event, index: number) => (
-          <CarouselCard key={index} id={index + 1} poster={event.eventPoster} />
-        ))}
+      <div className="overflow-hidden w-full max-h-full carousel h-[90dvh] bg-primary">
+        <HeroSection />
       </div>
       <br />
       <br />
