@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Navbar() {
   return (
     <div className="sticky top-0 z-10 navbar bg-primary text-base-100">
@@ -25,10 +27,10 @@ export default function Navbar() {
             className="p-2 mt-3 w-52 shadow menu menu-sm dropdown-content bg-primary text-base-100 rounded-box z-1"
           >
             <li>
-              <a>Homepage</a>
+              <Link href="/"> Homepage</Link>
             </li>
             <li>
-              <a>Account</a>
+              <Link href="/user">Account</Link>
             </li>
           </ul>
         </div>
