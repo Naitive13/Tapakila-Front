@@ -63,7 +63,10 @@ export default function Login() {
               >
                 Create Account
               </button>
-              <button className="w-6/12 btn btn-outline shrink btn-primary md:max-w-12/12">
+              <button
+                type="button"
+                className="w-6/12 btn btn-outline shrink btn-primary md:max-w-12/12"
+              >
                 <Link href="/login">Log In</Link>
               </button>
             </div>

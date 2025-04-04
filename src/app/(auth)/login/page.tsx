@@ -41,7 +41,10 @@ export default function Login() {
               >
                 Log In
               </button>
-              <button className="w-6/12 btn btn-outline shrink btn-primary md:max-w-12/12">
+              <button
+                type="button"
+                className="w-6/12 btn btn-outline shrink btn-primary md:max-w-12/12"
+              >
                 <Link href="/signup">Sign Up</Link>
               </button>
             </div>
