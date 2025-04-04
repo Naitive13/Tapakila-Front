@@ -1,8 +1,11 @@
+import Link from "next/link";
+
 interface EventItemProps {
   event: {
     eventPoster: string;
     eventTitle: string;
     eventDate: string;
+    eventId: string;
   };
 }
 export default function EventItem({ event }: EventItemProps) {
@@ -24,7 +27,9 @@ export default function EventItem({ event }: EventItemProps) {
           </div>
         </div>
         <div>
-          <button className="btn btn-secondary list-col-wrap">See More</button>
+          <button className="btn btn-secondary list-col-wrap">
+            <Link href={`/event/${event.eventId}`}>See More</Link>
+          </button>
         </div>
       </li>
     </>
