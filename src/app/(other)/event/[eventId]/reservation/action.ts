@@ -2,8 +2,8 @@ export async function submit(formData: FormData) {
   console.log(formData);
   const body = {
     ticketType: formData.get("ticketType"),
-    ticketAmount: formData.get("ticketAmount"),
-    eventId: formData.get("eventId"),
+    event_id: formData.get("eventId"),
+    reservationDate: new Date().toISOString(),
   };
 
   const postRequest = await fetch("/api/reservation", {
@@ -12,10 +12,10 @@ export async function submit(formData: FormData) {
   });
 
   if (postRequest.status == 200) {
-    const response = await postRequest.json();
-    alert(response.message);
+    alert("reservation successful");
   } else {
-    const response = await postRequest.json();
-    alert(response.error);
+    if (postRequest.status == 404) {
+      alert("No more available ticket");
+    }
   }
 }
