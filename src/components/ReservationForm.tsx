@@ -38,11 +38,11 @@ export default function ReservationForm({
             className="w-2/5 opacity-60 select select-secondary"
             onChange={(e) => setTicketType(e.target.value)}
           >
-            <option>Regular</option>
-            <option>Bronze</option>
-            <option>Silver</option>
-            <option>Gold</option>
-            <option>VIP</option>
+            <option>regular</option>
+            <option>bronze</option>
+            <option>silver</option>
+            <option>gold</option>
+            <option>vip</option>
           </select>
         </fieldset>
         <button className="mt-4 w-2/12 btn btn-soft btn-primary">
