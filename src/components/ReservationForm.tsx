@@ -13,8 +13,7 @@ export default function ReservationForm({
   ref,
   eventId,
 }: ReservationFormProps) {
-  const { ticketType, ticketAmount, setTicketType, setTicketAmount } =
-    useReservationInfoStore();
+  const { ticketType, setTicketType } = useReservationInfoStore();
 
   return (
     <>
@@ -25,7 +24,6 @@ export default function ReservationForm({
         }}
         ref={ref}
         onReset={() => {
-          setTicketAmount("1");
           setTicketType("Regular");
         }}
       >
@@ -34,11 +32,6 @@ export default function ReservationForm({
             Ticket Type
           </legend>
           <input name="ticketType" type="hidden" defaultValue={ticketType} />
-          <input
-            name="ticketAmount"
-            type="hidden"
-            defaultValue={ticketAmount}
-          />
           <input name="eventId" type="hidden" defaultValue={eventId} />
           <select
             defaultValue="Regular"
@@ -50,22 +43,6 @@ export default function ReservationForm({
             <option>Silver</option>
             <option>Gold</option>
             <option>VIP</option>
-          </select>
-        </fieldset>
-        <fieldset className="fieldset">
-          <legend className="text-xl font-normal fieldset-legend">
-            Ticket Amount
-          </legend>
-          <select
-            defaultValue="1"
-            className="w-2/5 opacity-60 select select-secondary"
-            onChange={(e) => setTicketAmount(e.target.value)}
-          >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
           </select>
         </fieldset>
         <button className="mt-4 w-2/12 btn btn-soft btn-primary">
